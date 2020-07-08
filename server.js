@@ -19,9 +19,13 @@ const handleHomepage = (req, res) => {
 const handleProfilePage = (req, res) => {
   const userId = req.params.id;
   const matchingUser = users.find((user) => userId === user._id);
+  let friendsObjects = matchingUser.friends.map((friendId) => {
+    return users.find((user) => user._id === friendId);
+  });
 
   res.render("pages/profile", {
     user: matchingUser,
+    friendsObjects,
   });
 };
 

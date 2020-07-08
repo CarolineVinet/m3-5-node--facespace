@@ -1,7 +1,18 @@
 <%- include('../partials/header') %>
 
 <div class="profile-page">
-  <%= user.name %>
+ <h2><%= user.name %></h2>
+ <img src="<%= user.avatarUrl %>">
+ <h3><%= user.name %>'s friends'</h3>
+
+
+ <ul>
+     <% friendsObjects.forEach(friend=>{ %>
+         <li> <%= friend.name %> </li>
+        <li><img src="<%= friend.avatarUrl %>"></li>
+    <% }) %>
+ </ul>
+
 </div>
 
 <%- include('../partials/footer') %>
