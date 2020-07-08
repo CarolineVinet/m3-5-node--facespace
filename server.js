@@ -30,7 +30,7 @@ const handleProfilePage = (req, res) => {
 };
 
 const handleSignin = (req, res) => {
-  res.send("ok");
+  res.render("pages/signin");
 };
 
 // -----------------------------------------------------
@@ -46,7 +46,7 @@ express()
 
   .get("/users/:id", handleProfilePage)
 
-  .post("/signin", handleSignin)
+  .get("/signin", handleSignin)
 
   // a catchall endpoint that will send the 404 message.
   .get("*", handleFourOhFour)
