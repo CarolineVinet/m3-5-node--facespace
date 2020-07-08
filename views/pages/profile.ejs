@@ -11,9 +11,10 @@
  <h3><%= user.name %>'s friends'</h3>
  <ul class="profile-page__friends--list">
      <% friendsObjects.forEach(friend=>{ %>
-         <li class= "friend" ><img src="<%= friend.avatarUrl %>"></li>
-         <li class="friend"><p> <%= friend.name %> </p></li>
-        
+         <li class= "friend" >
+             <img src="<%= friend.avatarUrl %>">
+             <p> <%= friend.name %> </p>
+        </li>
     <% }) %>
  </ul>
 </div>

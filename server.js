@@ -46,7 +46,7 @@ express()
 
   .get("/users/:id", handleProfilePage)
 
-  .get("/signin", handleSignin)
+  .post("/signin", handleSignin)
 
   // a catchall endpoint that will send the 404 message.
   .get("*", handleFourOhFour)
