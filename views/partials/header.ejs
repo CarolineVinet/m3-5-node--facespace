@@ -8,6 +8,9 @@
 <body>
   <header class="header">
       <p class='site-title'>Facespace</p>
+     <% if(currentUser === ""){ %>
       <a href="/signin" class="signin-button">Sign In</a>
-      
+      <% } else { %>
+        <a href="/" class="signin-button"><%=`Hello ${currentUser}`%></a>
+     <% } %>
   </header>
