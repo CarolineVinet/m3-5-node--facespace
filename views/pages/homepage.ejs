@@ -7,6 +7,9 @@
         <li class="homepage__all--user">
           <a href="<%-`/users/${user._id}`%>">
           <img src="<%= user.avatarUrl %>" />
+          <% if (currentUser.friends && currentUser.friends.includes(user._id)) { %>
+            <p class="ribbon"><span >Friend</span></p>
+          <% } %>
           </a>
         </li>
         <% }) %>

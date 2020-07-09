@@ -5,7 +5,7 @@ const morgan = require("morgan");
 
 const { users } = require("./data/users");
 
-let currentUser = "";
+let currentUser = {};
 
 // declare the 404 function
 const handleFourOhFour = (req, res) => {
@@ -31,14 +31,18 @@ const handleProfilePage = (req, res) => {
 };
 
 const handleSignin = (req, res) => {
-  res.render("pages/signin", { currentUser });
+  if (!currentUser.name) {
+    res.render("pages/signin", { currentUser });
+  } else {
+    res.redirect("/");
+  }
 };
 
 const handleName = (req, res) => {
   let firstName = req.body.firstName;
   const matchingUser = users.find((user) => user.name === firstName);
   if (matchingUser) {
-    currentUser = matchingUser.name;
+    currentUser = matchingUser;
     res.status(200).redirect(`/users/${matchingUser._id}`);
   } else {
     res.status(404).redirect("/signin");
